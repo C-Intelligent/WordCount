@@ -152,10 +152,10 @@ Partition par) {
         __mapper** _map_para = (__mapper**)malloc(sizeof(__mapper*) * num_mappers);
         for (off = 1; off <= num_mappers; off++) {
             entry* en = getEntry(t_fb, &off, TYPE_INT);
-            map(en, t_map_out[off -1]);
+            // map(en, t_map_out[off -1]);
             _map_para[off - 1] = create__mapper(map, en, t_map_out[off -1]);
         }
-        // excute(t_mapper, (void**)_map_para, (size_t)num_mappers);
+        excute(t_mapper, (void**)_map_para, (size_t)num_mappers);
         for (off = 0; off < num_mappers; off++) free(_map_para[off]);
         free(_map_para);
         printf(">> Finish Mapping\n");
@@ -171,10 +171,10 @@ Partition par) {
         __reducer** _rdu_para = (__reducer**)malloc(sizeof(__reducer*) * num_reducers);
         for (par_off = 0; par_off < num_reducers; par_off++) {
             lupair* p = (lupair*)(getEntry(t_par, &par_off, TYPE_LUINT)->value);
-            reduce(p, t_map_out, (size_t)num_mappers, final);
+            // reduce(p, t_map_out, (size_t)num_mappers, final);
             _rdu_para[par_off] = create__reducer(reduce, p, t_map_out, (size_t)num_mappers, final);
         }
-        // excute(t_reducer, (void**)_rdu_para, (size_t)num_reducers);
+        excute(t_reducer, (void**)_rdu_para, (size_t)num_reducers);
         for (par_off = 0; par_off < num_reducers; par_off++) free(_rdu_para[par_off]);
         free(_rdu_para);
         printf("=========================OUTPUT=========================\n");
