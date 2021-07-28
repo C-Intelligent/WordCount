@@ -2,12 +2,13 @@
 author: Cao-Intelligent
 date: 2021/7/28
 email: 1842306143@qq.com
+github: git@github.com:C-Intelligent/WordCount.git
 
 ---
 ## About Project
 Word count statistics based on Mapreduce model and c. CMake is used for creating project.
 
-## Install an Run
+## Install and Run
 - apt-get install cmake (if you already have it, pass, version limited: 3.5+)
 - bash start.sh
 
