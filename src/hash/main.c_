@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include "../../include/hashtable.h"
+#include "../../include/mytype.h"
+
+int main() {
+    // table* t = createHashTable();
+    // table t;
+    // initHashTable(&t);
+    table* t = createHashTable(5);
+    // addEntry(t, "电脑型号" , "华硕 X550JK 笔记本电脑", TYPE_CHARARR, TYPE_CHARARR);
+    // addEntry(t, "操作系统" , "Windows 8.1 64位 (DirectX 11)", TYPE_CHARARR, TYPE_CHARARR);
+    // addEntry(t, "对小戴戴的爱" , "1000000万分", TYPE_CHARARR, TYPE_CHARARR);
+    // size_t score = 100;
+    // addEntry(t, "戴戴的爱" , &score, TYPE_CHARARR, TYPE_LUINT);
+    // printTable(t);
+    // printf("查找我对小戴戴的爱的分数：%s\n", (char*)(getEntry(t, "对小戴戴的爱", TYPE_CHARARR)->value));
+    size_t i = 0;
+    for (i = 0; i < 10; i++) {
+        lupair* p = createLuPair(4, 6);
+        // lupair* p = (lupair*)malloc(sizeof(lupair));
+        // p->_first = 9;
+        // p->_second = 2;
+        addPointerEntry(t, &i, p, TYPE_LUINT);
+        // ((lupair*)(getEntry(t, &i, TYPE_LUINT)->value))->_first = 8;
+    }
+    printf("size:%lu", sizeof(lupair));
+
+    printTable(t);
+    freeHashTable(t);
+    return 0;
+}

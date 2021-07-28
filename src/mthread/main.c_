@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include "../../include/mthread.h"
+
+void* test(char* str) {
+    printf("okk%s\n", str);
+}
+
+int main() {
+    char* strs[] = {
+        "sss",
+        "lll",
+    };
+    excute(test, strs, 2);
+    return 0;
+}
